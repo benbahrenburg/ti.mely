@@ -1,9 +1,8 @@
 //
 //  MSWeakTimer.m
-//  MindSnacks
+//  MindSnacks (https://github.com/mindsnacks/MSWeakTimer)
 //
-//  Created by Javier Soto on 1/23/13.
-//
+//  Created by Javier Soto (https://github.com/mindsnacks) on 1/23/13.
 //
 
 #import "MSWeakTimer.h"
