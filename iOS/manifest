@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 0.1
+apiversion: 2
+description: Ti.mely a Titanium Native Timer module
+author: Benjamin Bahrenburg
+license: MIT See license file
+copyright: Copyright (c) 2013 by Ben Bahrenburg (bencoding)
+
+
+# these should not be edited
+name: timely
+moduleid: ti.mely
+guid: de651147-fbe1-497d-b8be-f76ae240fa69
+platform: iphone
+minsdk: 3.1.1.GA
