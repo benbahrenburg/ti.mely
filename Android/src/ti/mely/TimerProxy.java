@@ -13,9 +13,12 @@ import java.util.HashMap;
 
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollProxy;
+import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.kroll.common.Log;
+
 import android.os.Handler;
 
+@Kroll.proxy(creatableInModule=TimelyModule.class)
 public class TimerProxy  extends KrollProxy {
 
 	private Handler _taskHandler = new Handler();
@@ -47,6 +50,7 @@ public class TimerProxy  extends KrollProxy {
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Kroll.method
 	public void start(HashMap hm){
 	    
 		KrollDict args = new KrollDict(hm);
@@ -82,7 +86,8 @@ public class TimerProxy  extends KrollProxy {
 	    _taskHandler.postDelayed( _task, (long)_interval );
 	    _isActive = true;
 	}
-	
+
+	@Kroll.method
 	public void stop(){
 		if(_debug){
 			Log.d(TimelyModule.MODULE_SHORT_NAME,"[DEBUG] Stopping Timer");
