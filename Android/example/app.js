@@ -1,39 +1,58 @@
-// This is a test harness for your module
-// You should do something interesting in this harness 
-// to test out the module and to provide instructions 
-// to users on how to use it by example.
 
-
+var timer = require('ti.mely').createTimer();
+	
 // open a single window
 var win = Ti.UI.createWindow({
-	backgroundColor:'white'
+	backgroundColor:'#fff'
 });
-var label = Ti.UI.createLabel();
-win.add(label);
-win.open();
 
-// TODO: write your module tests here
-var timely = require('ti.mely');
-Ti.API.info("module is => " + timely);
+var how2Label = Ti.UI.createLabel({
+	text:"Enter Duration in milliseconds",
+	top:20, left:7, right:7, height:20
+});
+win.add(how2Label);
 
-label.text = timely.example();
+var durationText = Ti.UI.createTextField({
+	value:1000, top:50, left:7, right:7, height:20	
+});
 
-Ti.API.info("module exampleProp is => " + timely.exampleProp);
-timely.exampleProp = "This is a test value";
+win.add(durationText);
 
-if (Ti.Platform.name == "android") {
-	var proxy = timely.createExample({
-		message: "Creating an example Proxy",
-		backgroundColor: "red",
-		width: 100,
-		height: 100,
-		top: 100,
-		left: 150
+var counterLabel = Ti.UI.createLabel({
+	top:100, width:Ti.UI.FILL, height:40,left:7, right:7
+});
+win.add(counterLabel);
+
+function showUpdate(d){
+	var msg = "interval changed - interval set to " + d.interval + " interval count = " + d.intervalCount;
+	Ti.API.info(msg);
+	counterLabel.text = "Updated " + d.intervalCount  + " times.";
+};
+var startButton = Ti.UI.createButton({
+	title:"Start", top:200,
+	left:7, height:40, width:125
+});		
+win.add(startButton);
+
+startButton.addEventListener('click',function(e){
+	counterLabel.text ="Starting Timer";
+	timer.addEventListener('onIntervalChange',showUpdate);
+	timer.start({
+		interval:durationText.value,
+		debug:true
 	});
+});
 
-	proxy.printMessage("Hello world!");
-	proxy.message = "Hi world!.  It's me again.";
-	proxy.printMessage("Hello world!");
-	win.add(proxy);
-}
+var stopButton = Ti.UI.createButton({
+	title:"Stop", top:200,
+	right:7, height:40, width:125
+});		
+win.add(stopButton);
 
+stopButton.addEventListener('click',function(e){
+	timer.stop();
+	timer.removeEventListener('onIntervalChange',showUpdate);
+	label.text ="Press the Start button to test again";
+});
+
+win.open();
