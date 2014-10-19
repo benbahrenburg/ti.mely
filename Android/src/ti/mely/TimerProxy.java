@@ -59,7 +59,7 @@ public class TimerProxy  extends KrollProxy {
 			_interval = args.getDouble("interval");
 		}
 
-		_debug = args.optBoolean("deubg", false);
+		_debug = args.optBoolean("debug", false);
 		
 		if(_debug){
 			Log.d(TimelyModule.MODULE_SHORT_NAME,"[DEBUG] Starting Timer");
