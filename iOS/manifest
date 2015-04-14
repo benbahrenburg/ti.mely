@@ -2,8 +2,9 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 0.2
+version: 0.3
 apiversion: 2
+architectures: armv7 arm64 i386 x86_64
 description: Ti.mely a Titanium Native Timer module
 author: Benjamin Bahrenburg
 license: MIT See license file
@@ -15,5 +16,5 @@ name: timely
 moduleid: ti.mely
 guid: de651147-fbe1-497d-b8be-f76ae240fa69
 platform: iphone
-minsdk: 3.4.1.GA
+minsdk: 3.5.1.GA
 architectures: armv7 i386 x86_64 arm64
