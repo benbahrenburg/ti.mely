@@ -1,0 +1,12 @@
+<project name="timely" default="both">
+    <property environment="env"/>
+    <property file="build.properties" />
+    <target name="ios">
+        <exec dir="${basedir}/iOS" executable="${titanium.build}" failonerror="true"/>
+        <move file="${module.ios.binary}" todir="${basedir}/iOS/dist"/>
+    </target>
+    <target name="android">
+        <exec dir="${basedir}/Android" executable="ant" failonerror="true"/>
+    </target>
+    <target name="both" depends="ios, android"/>
+</project>
