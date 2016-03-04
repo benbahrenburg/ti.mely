@@ -3,6 +3,7 @@
 # during compilation, packaging, distribution, etc.
 #
 version: 0.1
+architectures: armeabi armeabi-v7a x86
 apiversion: 2
 description: Ti.mely a Titanium Native Timer module
 author: Benjamin Bahrenburg
@@ -15,4 +16,4 @@ name: timely
 moduleid: ti.mely
 guid: 558aead6-52b5-4562-91fa-dbf879d57c65
 platform: android
-minsdk: 3.1.1.GA
+minsdk: 5.1.2.GA
