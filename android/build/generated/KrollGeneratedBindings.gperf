@@ -1,0 +1,20 @@
+%define lookup-function-name lookupGeneratedInit
+%define class-name TimelyBindings
+%{
+
+#include <string.h>
+#include <v8.h>
+#include <KrollBindings.h>
+
+#include "ti.mely.ExampleProxy.h"
+#include "ti.mely.TimelyModule.h"
+#include "ti.mely.TimerProxy.h"
+
+
+%}
+struct titanium::bindings::BindEntry;
+%%
+ti.mely.ExampleProxy, ::ti::mely::timely::ExampleProxy::bindProxy, ::ti::mely::timely::ExampleProxy::dispose
+ti.mely.TimelyModule, ::ti::mely::TimelyModule::bindProxy, ::ti::mely::TimelyModule::dispose
+ti.mely.TimerProxy, ::ti::mely::timely::TimerProxy::bindProxy, ::ti::mely::timely::TimerProxy::dispose
+%%
